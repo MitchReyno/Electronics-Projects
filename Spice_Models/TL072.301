@@ -1,0 +1,64 @@
+* TL072 DUAL OPERATIONAL AMPLIFIER
+* Dual wrapper using nested subcircuit calls for clean ngspice scoping
+*
+* PIN CONNECTIONS (DIP-8):
+*   1: Amp A Output
+*   2: Amp A Inverting INPOSut (-)
+*   3: Amp A Non-Inverting INPOSut (+)
+*   4: V-
+*   5: Amp B Non-Inverting INPOSut (+)
+*   6: Amp B Inverting INPOSut (-)
+*   7: Amp B Output
+*   8: V+
+*
+* ----------------------------------------------------------------
+* Single amp subcircuit
+* Ports: IN+ IN- V+ V- OUT
+* ----------------------------------------------------------------
+.SUBCKT TL072_SINGLE  OUT INNEG INPOS VNEG VPOS
+*
+  C1   11 12 3.498E-12
+  C2    6  7 15.00E-12
+  DC    OUT 53 DX
+  DE   54  OUT DX
+  DLP  90 91 DX
+  DLN  92 90 DX
+  DP    VNEG  VPOS DX
+  EGND 99  0 POLY(2) (VPOS,0) (VNEG,0) 0 .5 .5
+  FB    7 99 POLY(5) VB VC VE VLP VLN 0 4.715E6 -5E6 5E6 5E6 -5E6
+  GA    6  0 11 12 282.8E-6
+  GCM   0  6 10 99 8.942E-9
+  ISS   VPOS 10 DC 195.0E-6
+  HLIM 90  0 VLIM 1K
+  J1   11  INNEG 10 JX
+  J2   12  INPOS 10 JX
+  R2    6  9 100.0E3
+  RD1   VNEG 11 3.536E3
+  RD2   VNEG 12 3.536E3
+  RO1   8  OUT 150
+  RO2   7 99 150
+  RP    VPOS  VNEG 2.143E3
+  RSS  10 99 1.026E6
+  VB    9  0 DC 0
+  VC    VPOS 53 DC 2.200
+  VE   54  VNEG DC 2.200
+  VLIM  7  8 DC 0
+  VLP  91  0 DC 25
+  VLN   0 92 DC 25
+*
+.MODEL DX D(IS=800.0E-18)
+.MODEL JX PJF(IS=15.00E-12 BETA=270.1E-6 VTO=-1)
+.ENDS TL072_SINGLE
+*
+* ----------------------------------------------------------------
+* Dual wrapper
+* Ports map 1:1 to DIP-8 pin numbers
+*   1=A_OUT  2=A_IN-  3=A_IN+  4=V-
+*   5=B_IN+  6=B_IN-  7=B_OUT  8=V+
+* Subcircuit call: X1 IN+ IN- V+ V- OUT TL072_SINGLE
+* ----------------------------------------------------------------
+.SUBCKT TL072_DUAL  1 2 3 4 5 6 7 8
+*              OUT IN- IN+ V- V+
+X_AMPA  1   2   3   4   8   TL072_SINGLE
+X_AMPB  7   6   5   4   8   TL072_SINGLE
+.ENDS TL072_DUAL

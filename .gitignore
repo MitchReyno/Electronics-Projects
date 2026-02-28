@@ -38,3 +38,6 @@ fp-info-cache
 
 # Local project settings
 *.kicad_prl
+
+# MacOS directory files
+.DS_Store

@@ -5797,7 +5797,7 @@
 	)
 	(wire
 		(pts
-			(xy 160.02 88.9) (xy 167.64 88.9)
+			(xy 160.02 88.9) (xy 168.91 88.9)
 		)
 		(stroke
 			(width 0)
@@ -7867,7 +7867,7 @@
 	)
 	(wire
 		(pts
-			(xy 175.26 88.9) (xy 184.15 88.9)
+			(xy 176.53 88.9) (xy 184.15 88.9)
 		)
 		(stroke
 			(width 0)
@@ -10106,6 +10106,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 260.35 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "409191ee-2ab4-4153-b09f-2269eadb2db2")
 		)
@@ -10224,6 +10233,15 @@
 			)
 		)
 		(property "Sim.Type" "GUMMELPOON"
+			(at 186.69 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 186.69 44.45 0)
 			(effects
 				(font
@@ -10406,6 +10424,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 92.71 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "12"
 			(uuid "4f232eb3-3ab8-4d9d-baf4-44e298f1cdc5")
 		)
@@ -10524,6 +10551,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 113.03 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d3489cac-b200-46dc-a134-6bed7caaa8ef")
 		)
@@ -10609,8 +10645,8 @@
 		(at 273.05 59.69 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
+		(in_bom no)
+		(on_board no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0bc57376-b4a7-4dc4-9574-82bc4c2a814b")
@@ -10684,6 +10720,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
+			(at 273.05 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -10893,6 +10938,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 62.23 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "88df393b-576a-4755-a642-cb7cf11491fc")
 		)
@@ -10962,6 +11016,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 55.88 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 55.88 165.1 0)
 			(effects
 				(font
@@ -11040,6 +11103,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 143.51 149.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 143.51 149.86 0)
 			(effects
 				(font
@@ -11254,6 +11326,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 106.68 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d4cdb4d5-b6dc-4486-9b54-7044b5135686")
 		)
@@ -11271,7 +11352,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 171.45 88.9 90)
+		(at 172.72 88.9 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11279,7 +11360,7 @@
 		(dnp no)
 		(uuid "17e49238-5a80-4969-9e79-9b96ab21360d")
 		(property "Reference" "R23"
-			(at 171.45 86.36 90)
+			(at 172.72 86.36 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11287,7 +11368,7 @@
 			)
 		)
 		(property "Value" "180K"
-			(at 171.45 91.44 90)
+			(at 172.72 91.44 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11295,7 +11376,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
-			(at 171.45 90.678 90)
+			(at 172.72 90.678 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11304,7 +11385,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 171.45 88.9 0)
+			(at 172.72 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11313,7 +11394,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 171.45 88.9 0)
+			(at 172.72 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11322,7 +11403,16 @@
 			)
 		)
 		(property "Name" ""
-			(at 171.45 88.9 0)
+			(at 172.72 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
+			(at 172.72 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11352,7 +11442,7 @@
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
-		(on_board yes)
+		(on_board no)
 		(dnp no)
 		(uuid "1ebaebdd-66e0-4dcf-82af-0c5eead79edf")
 		(property "Reference" "VR37"
@@ -11452,6 +11542,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 243.84 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "30123dd4-88fe-4f40-ae6f-538ce6857cfd")
 		)
@@ -11477,7 +11576,7 @@
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
-		(on_board yes)
+		(on_board no)
 		(dnp no)
 		(uuid "1f8c93f3-40e2-4630-b023-425867e065c5")
 		(property "Reference" "VR4"
@@ -11552,6 +11651,15 @@
 			)
 		)
 		(property "Sim.Pins" "1=r0 2=wiper 3=r1"
+			(at 99.06 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 99.06 21.59 0)
 			(effects
 				(font
@@ -11677,6 +11785,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 114.3 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "55d7f1da-ee2a-4b04-98d9-dae433110ad0")
 		)
@@ -11771,6 +11888,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 191.77 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9f131fed-c046-4126-a482-fd8f81a3462f")
 		)
@@ -11842,6 +11968,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 46.99 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 46.99 76.2 0)
 			(effects
 				(font
@@ -12041,6 +12176,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 228.6 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "3a8d02f7-ee84-43d1-bd1d-c967eef4c78a")
 		)
@@ -12120,6 +12264,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 45.72 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "0de3acb9-1b99-48e2-8d09-fcdbd1f28459")
 		)
@@ -12188,6 +12341,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 220.98 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 220.98 55.88 0)
 			(effects
 				(font
@@ -12294,6 +12456,15 @@
 			)
 		)
 		(property "Sim.Pins" "1=1 2=2 3=3 4=4 5=5 6=6 7=7 8=8 9=9 10=10 11=11 12=12 13=13 14=14 15=15 16=16"
+			(at 168.91 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 168.91 80.01 0)
 			(effects
 				(font
@@ -12529,6 +12700,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 31.75 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "27eafc07-ce5b-469d-b260-44f6fac67394")
 		)
@@ -12670,6 +12850,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 226.06 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "7908823b-ac26-41dd-be3a-90bc26774655")
 		)
@@ -12738,6 +12927,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 223.52 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 223.52 85.09 0)
 			(effects
 				(font
@@ -12873,6 +13071,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 184.15 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "e46db862-8550-4f9f-a1e7-d07fc790f5ab")
 		)
@@ -12962,6 +13169,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 67.31 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 67.31 102.87 0)
 			(effects
 				(font
@@ -13149,6 +13365,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 205.74 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "8"
 			(uuid "f367f29e-b9cb-4897-800b-edb40d9cb7f9")
 		)
@@ -13245,6 +13470,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 173.99 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d4cdb4d5-b6dc-4486-9b54-7044b5135688")
 		)
@@ -13326,6 +13560,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 99.06 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "6719f498-659c-48c9-ad9e-d7b7c18c67a0")
 		)
@@ -13391,6 +13634,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 248.92 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 248.92 25.4 0)
 			(effects
 				(font
@@ -13467,6 +13719,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 44.45 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 44.45 96.52 0)
 			(effects
 				(font
@@ -13675,6 +13936,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 176.53 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 176.53 38.1 0)
 			(effects
 				(font
@@ -13919,6 +14189,15 @@
 			)
 		)
 		(property "Sim.Pins" "1=1 2=2 3=3 4=4 5=5 6=6 7=7 8=8"
+			(at 135.89 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 135.89 90.17 0)
 			(effects
 				(font
@@ -14359,7 +14638,7 @@
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
-		(on_board yes)
+		(on_board no)
 		(dnp no)
 		(uuid "5280e5b5-b1af-458c-b082-14441bcb3d82")
 		(property "Reference" "VR1"
@@ -14446,6 +14725,15 @@
 		)
 		(property "Sim.Params" "r=100K pos=550m"
 			(at 81.28 -38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
+			(at 59.69 21.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14599,6 +14887,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 158.75 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "88df393b-576a-4755-a642-cb7cf1149200")
 		)
@@ -14677,6 +14974,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 210.82 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d4cdb4d5-b6dc-4486-9b54-7044b5135689")
 		)
@@ -14745,6 +15051,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 190.5 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 190.5 88.9 0)
 			(effects
 				(font
@@ -14863,6 +15178,15 @@
 			)
 		)
 		(property "Sim.Params" "c=1e-14"
+			(at 252.73 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 252.73 161.29 0)
 			(effects
 				(font
@@ -15013,6 +15337,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 210.82 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9f131fed-c046-4126-a482-fd8f81a34632")
 		)
@@ -15090,6 +15423,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 123.19 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 123.19 143.51 0)
 			(effects
 				(font
@@ -15242,6 +15584,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 152.4 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d4cdb4d5-b6dc-4486-9b54-7044b513568b")
 		)
@@ -15383,6 +15734,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 260.35 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "16b67600-cfc2-47e8-94a2-8bfcbe450c3f")
 		)
@@ -15451,6 +15811,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 186.69 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 186.69 121.92 0)
 			(effects
 				(font
@@ -15565,6 +15934,15 @@
 			)
 		)
 		(property "Sim.Pins" "1=1 2=2 3=3 4=4 5=5 6=6 7=7 8=8"
+			(at 172.72 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 172.72 114.3 0)
 			(effects
 				(font
@@ -15705,6 +16083,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 162.56 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "8"
 			(uuid "ab7bb2f3-d5b9-4544-abda-f239884b5c5a")
 		)
@@ -15799,6 +16186,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 232.41 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d3489cac-b200-46dc-a134-6bed7caaa8f1")
 		)
@@ -15867,6 +16263,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 45.72 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 45.72 63.5 0)
 			(effects
 				(font
@@ -15944,6 +16349,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 255.27 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 255.27 118.11 0)
 			(effects
 				(font
@@ -16421,6 +16835,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 223.52 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d4cdb4d5-b6dc-4486-9b54-7044b513568d")
 		)
@@ -16494,6 +16917,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 238.76 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 238.76 114.3 0)
 			(effects
 				(font
@@ -16597,6 +17029,15 @@
 			)
 		)
 		(property "Sim.Pins" "1=1 2=2 3=3 4=4 5=5 6=6 7=7 8=8 9=9 10=10 11=11 12=12 13=13 14=14 15=15 16=16"
+			(at 66.04 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 66.04 80.01 0)
 			(effects
 				(font
@@ -16894,6 +17335,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 53.34 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "33e04332-bc83-437d-81df-2f815f814c38")
 		)
@@ -16991,6 +17441,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 39.37 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "6b148fc9-1498-4366-ae99-5c2c279d5dfd")
 		)
@@ -17059,6 +17518,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 226.06 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 226.06 25.4 0)
 			(effects
 				(font
@@ -17173,6 +17641,15 @@
 			)
 		)
 		(property "Sim.Pins" "1=1 2=2 3=3 4=4 5=5 6=6 7=7 8=8"
+			(at 69.85 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 69.85 156.21 0)
 			(effects
 				(font
@@ -17317,6 +17794,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 252.73 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "243439b3-bf8b-4c11-ad25-dd36ea4fc654")
 		)
@@ -17437,6 +17923,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 31.75 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "a6eaa81a-0e99-49c2-b1a0-3f1a68843e16")
 		)
@@ -17547,6 +18042,15 @@
 			)
 		)
 		(property "Sim.Params" "c=1e-14"
+			(at 252.73 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 252.73 64.77 0)
 			(effects
 				(font
@@ -17680,6 +18184,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 100.33 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "29819954-6846-4980-924f-436afd0c4c50")
 		)
@@ -17751,6 +18264,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 237.49 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 237.49 25.4 0)
 			(effects
 				(font
@@ -17877,6 +18399,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 252.73 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "e441e167-f8df-4d50-ac72-f60034c1044e")
 		)
@@ -17898,7 +18429,7 @@
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
-		(on_board yes)
+		(on_board no)
 		(dnp no)
 		(uuid "8aee5a6c-32a4-47a2-bbec-8b9cc43e9fe3")
 		(property "Reference" "R63"
@@ -17945,6 +18476,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 177.8 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 177.8 95.25 0)
 			(effects
 				(font
@@ -18087,6 +18627,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 100.33 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8d4881df-bbf6-48b1-8671-28f62965cca9")
 		)
@@ -18188,6 +18737,15 @@
 			)
 		)
 		(property "Sim.Pins" "1=1 2=2 3=3 4=4 5=5 6=6 7=7 8=8 9=9 10=10 11=11 12=12 13=13 14=14 15=15 16=16"
+			(at 26.67 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 26.67 85.09 0)
 			(effects
 				(font
@@ -18352,6 +18910,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 135.89 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "0d184a06-8f2f-4e7b-bdeb-42e52145bc87")
 		)
@@ -18423,6 +18990,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 190.5 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 190.5 114.3 0)
 			(effects
 				(font
@@ -18649,6 +19225,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 133.35 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d3489cac-b200-46dc-a134-6bed7caaa8f2")
 		)
@@ -18863,6 +19448,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 64.77 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "59ed31ec-af15-480b-9053-130a497f0e3c")
 		)
@@ -18929,7 +19523,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "a919b729-3d4e-41cc-a812-ace8cc9f08bd")
+			(uuid "a919b729-3d4e-41cc-a812-ace8cc9f08be")
 		)
 		(instances
 			(project ""
@@ -18994,6 +19588,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 223.52 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 223.52 64.77 0)
 			(effects
 				(font
@@ -19078,6 +19681,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 110.49 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d3489cac-b200-46dc-a134-6bed7caaa8f3")
 		)
@@ -19146,6 +19758,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 217.17 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 217.17 48.26 0)
 			(effects
 				(font
@@ -19281,6 +19902,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 140.97 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "1c17404c-28ff-42f5-966a-588623caeb97")
 		)
@@ -19352,6 +19982,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 140.97 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 140.97 74.93 0)
 			(effects
 				(font
@@ -19631,6 +20270,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 207.01 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "88df393b-576a-4755-a642-cb7cf1149204")
 		)
@@ -19774,6 +20422,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 45.72 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d4cdb4d5-b6dc-4486-9b54-7044b5135691")
 		)
@@ -19892,6 +20549,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 252.73 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "2e971ae6-e74a-44c6-b57b-0988a4aad84f")
 		)
@@ -19965,6 +20631,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 250.19 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 250.19 114.3 0)
 			(effects
 				(font
@@ -20176,6 +20851,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 119.38 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d4cdb4d5-b6dc-4486-9b54-7044b5135692")
 		)
@@ -20252,6 +20936,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 95.25 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9f131fed-c046-4126-a482-fd8f81a34634")
 		)
@@ -20320,6 +21013,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 59.69 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 59.69 36.83 0)
 			(effects
 				(font
@@ -20461,6 +21163,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 248.92 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 248.92 33.02 0)
 			(effects
 				(font
@@ -20668,6 +21379,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 199.39 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "10"
 			(uuid "8fa51c47-a570-4b71-bc43-c7c8cb880341")
 		)
@@ -20760,6 +21480,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 58.42 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 58.42 138.43 0)
 			(effects
 				(font
@@ -20911,6 +21640,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 100.33 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d3489cac-b200-46dc-a134-6bed7caaa8f5")
 		)
@@ -20979,6 +21717,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 90.17 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 90.17 97.79 0)
 			(effects
 				(font
@@ -21063,6 +21810,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 227.33 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9f131fed-c046-4126-a482-fd8f81a34635")
 		)
@@ -21085,7 +21841,7 @@
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
-		(on_board yes)
+		(on_board no)
 		(dnp no)
 		(uuid "bacb9535-8756-494f-becb-b89e113b2bc9")
 		(property "Reference" "R62"
@@ -21143,6 +21899,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 48.26 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 48.26 21.59 0)
 			(effects
 				(font
@@ -21265,6 +22030,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 102.87 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "c17f222f-a532-4ee2-a828-2203b429d952")
 		)
@@ -21359,6 +22133,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 223.52 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9f131fed-c046-4126-a482-fd8f81a34637")
 		)
@@ -21429,6 +22212,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 115.57 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 115.57 152.4 0)
 			(effects
 				(font
@@ -21748,6 +22540,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 160.02 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "55d7f1da-ee2a-4b04-98d9-dae433110ad1")
 		)
@@ -21843,6 +22644,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 152.4 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "88df393b-576a-4755-a642-cb7cf1149205")
 		)
@@ -21912,7 +22722,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "a919b729-3d4e-41cc-a812-ace8cc9f08bd")
+			(uuid "a919b729-3d4e-41cc-a812-ace8cc9f08bf")
 		)
 		(instances
 			(project ""
@@ -21976,6 +22786,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 177.8 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 177.8 69.85 0)
 			(effects
 				(font
@@ -22082,6 +22901,15 @@
 			)
 		)
 		(property "Sim.Pins" "1=1 2=2 3=3 4=4 5=5 6=6 7=7 8=8 9=9 10=10 11=11 12=12 13=13 14=14 15=15 16=16"
+			(at 198.12 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 198.12 71.12 0)
 			(effects
 				(font
@@ -22226,6 +23054,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 165.1 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "391662fa-038f-4715-99f9-293cd6f35810")
 		)
@@ -22294,6 +23131,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 223.52 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 223.52 161.29 0)
 			(effects
 				(font
@@ -22378,6 +23224,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 85.09 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d4cdb4d5-b6dc-4486-9b54-7044b5135694")
 		)
@@ -22420,7 +23275,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "SolderWire-0.127sqmm_1x01_D0.48mm_OD1mm_Custom"
+		(property "Footprint" "Connector_Wire:SolderWire-0.5sqmm_1x01_D0.9mm_OD2.1mm"
 			(at 241.3 48.26 0)
 			(effects
 				(font
@@ -22485,6 +23340,15 @@
 			)
 		)
 		(property "Sim.Name" "LED_RED"
+			(at 241.3 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 241.3 48.26 0)
 			(effects
 				(font
@@ -22566,6 +23430,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 59.69 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 59.69 30.48 0)
 			(effects
 				(font
@@ -22712,6 +23585,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 77.47 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d3489cac-b200-46dc-a134-6bed7caaa8f6")
 		)
@@ -22732,8 +23614,8 @@
 		(at 273.05 49.53 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
+		(in_bom no)
+		(on_board no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d30870ea-a55f-4962-ae8c-7942b8cbe306")
@@ -22807,6 +23689,15 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
+			(at 273.05 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
@@ -22924,6 +23815,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 72.39 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "55d7f1da-ee2a-4b04-98d9-dae433110ad2")
 		)
@@ -23018,6 +23918,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 148.59 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9f131fed-c046-4126-a482-fd8f81a3463a")
 		)
@@ -23086,6 +23995,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 135.89 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 135.89 49.53 0)
 			(effects
 				(font
@@ -23273,6 +24191,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 207.01 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "8"
 			(uuid "f367f29e-b9cb-4897-800b-edb40d9cb7fc")
 		)
@@ -23367,6 +24294,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 227.33 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9f131fed-c046-4126-a482-fd8f81a3463b")
 		)
@@ -23452,6 +24388,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 73.66 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "e89310f6-721b-4908-8043-8d0ce75e171b")
 		)
@@ -23522,6 +24467,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 123.19 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 123.19 124.46 0)
 			(effects
 				(font
@@ -23716,6 +24670,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 31.75 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "f01c8ced-eb09-4e4c-bdec-7a323b4365ab")
 		)
@@ -23792,6 +24755,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 99.06 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d4cdb4d5-b6dc-4486-9b54-7044b5135696")
 		)
@@ -23860,6 +24832,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 132.08 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 132.08 69.85 0)
 			(effects
 				(font
@@ -24081,6 +25062,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 243.84 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "4f0b8f76-193e-4100-bec0-a0db0df90fbd")
 		)
@@ -24212,6 +25202,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 163.83 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 163.83 49.53 0)
 			(effects
 				(font
@@ -24491,6 +25490,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 237.49 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "6e9a4b78-0bb1-44b5-8995-921e6ab93b7d")
 		)
@@ -24700,6 +25708,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 77.47 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9f131fed-c046-4126-a482-fd8f81a3463c")
 		)
@@ -24818,6 +25835,15 @@
 				(hide yes)
 			)
 		)
+		(property "Unused Label" ""
+			(at 252.73 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "c83ed802-c852-4510-85d1-f38d84476e21")
 		)
@@ -24886,6 +25912,15 @@
 			)
 		)
 		(property "Name" ""
+			(at 167.64 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Unused Label" ""
 			(at 167.64 161.29 0)
 			(effects
 				(font

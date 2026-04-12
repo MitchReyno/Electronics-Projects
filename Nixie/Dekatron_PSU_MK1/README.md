@@ -10,13 +10,13 @@ The design is a boost converter topology adapted from the Nixie PSU MK1, with co
 
 ## Key components
 
-| Component | Role |
-|-----------|------|
+| Component | Role                           |
+| --------- | ------------------------------ |
 | MC34063AP | Switching regulator controller |
-| IRF740 | N-channel MOSFET power switch |
-| PN2907ABU | PNP transistor (gate drive) |
-| BAV21 | High-voltage rectifier diode |
-| 1N4148 | Signal diode |
+| IRF740    | N-channel MOSFET power switch  |
+| PN2907ABU | PNP transistor (gate drive)    |
+| BAV21     | High-voltage rectifier diode   |
+| 1N4148    | Signal diode                   |
 
 ## Files
 

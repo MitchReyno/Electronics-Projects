@@ -8,15 +8,15 @@ Steps up a low DC input voltage to approximately 170 V DC — the typical anode 
 
 ## Key components
 
-| Component | Role |
-|-----------|------|
-| MC34063AP | Switching regulator controller |
-| IRF740 | N-channel MOSFET power switch |
-| PN2907ABU | PNP transistor (gate drive) |
-| 220 µH inductor | Boost energy storage |
-| BAV21 | High-voltage rectifier diode |
-| 1N4148 | Signal diode |
-| 100 kΩ trim pot | Output voltage adjustment |
+| Component       | Role                           |
+| --------------- | ------------------------------ |
+| MC34063AP       | Switching regulator controller |
+| IRF740          | N-channel MOSFET power switch  |
+| PN2907ABU       | PNP transistor (gate drive)    |
+| 220 µH inductor | Boost energy storage           |
+| BAV21           | High-voltage rectifier diode   |
+| 1N4148          | Signal diode                   |
+| 100 kΩ trim pot | Output voltage adjustment      |
 
 The output voltage is set by a resistor divider (fixed resistor + trim pot) feeding back to the MC34063 sense pin, allowing fine adjustment around the target voltage.
 

@@ -1,0 +1,51 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "bec3bc01-cdba-4351-9861-fdd55d3463ab")
+	(paper "A4")
+	(lib_symbols)
+	(sheet
+		(at 17.78 17.78)
+		(size 149.86 81.28)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "a87ff978-02d3-4832-86b4-47153508f6ba")
+		(property "Sheetname" "Cutoff_Board"
+			(at 17.78 17.0684 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "Cutoff_Board.kicad_sch"
+			(at 17.78 99.6446 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "VCF_State_Variable"
+				(path "/bec3bc01-cdba-4351-9861-fdd55d3463ab"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+)

@@ -7,34 +7,39 @@
 #define VARIABLES_H
 
 // --- Pin definitions ---
+//
+// Pin grouping by port:
+//   Port D (D0–D7): serial, inputs, LED cathodes, 4017 CLK
+//   Port B (D8–D13): 4017 RST, shift register, gate outputs G/H
+//   Port C (A0–A5): gate outputs A–F
 
-// Trigger & Reset inputs (active-low via 2N3904 inverters, unchanged)
-#define TRIG_PIN        3   // D3 — external trigger input (INT1)
-#define RESET_PIN       4   // D4 — external reset input
+// Trigger & Reset inputs (active-low via 2N3904 inverters)
+#define TRIG_PIN        2   // D2 — external trigger input (INT0)
+#define RESET_PIN       3   // D3 — external reset input
 
-// Gate/trigger outputs (active-low open-collector, unchanged)
+// Gate/trigger outputs (active-low open-collector)
 // outs[0]=OUT_A .. outs[7]=OUT_H
-const byte outs[8] = {5, 6, 7, 8, 9, 12, 11, 10};
-
-// CD74HC165E shift register (switch reading)
-#define SR_SH_LD_PIN    A0  // SH/LD — pulse low to latch parallel inputs
-#define SR_CLK_PIN      A1  // CLK — clock to shift data out
-#define SR_QH_PIN       A2  // QH — serial data out
-// No interrupt pin for switch change — we poll instead (D2 used for LED_R)
+// A0–A5 = outputs A–F (PORTC bits 0–5), D12/D13 = outputs G/H (PORTB bits 4–5)
+const byte outs[8] = {A0, A1, A2, A3, A4, A5, 12, 13};
 
 // CD4017BE decade counter (LED anode multiplexing via NPN emitter-followers)
 // Each 4017 Qn output drives a 2N3904 base; collector to +5V,
 // emitter to LED common anode. Active-high: Q HIGH = LED powered.
-#define LED_MUX_CLK_PIN A3  // Clock input to CD4017
-#define LED_MUX_RST_PIN A4  // Reset input to CD4017
+#define LED_MUX_CLK_PIN 7   // D7 — Clock input to CD4017
+#define LED_MUX_RST_PIN 8   // D8 — Reset input to CD4017
 
 // RGB cathode sink transistors (2N3904 NPN, active-high base drive)
-// NOTE: A6 and A7 are ANALOG-ONLY on ATmega328P — cannot be digital outputs!
-// We use D2, D13, and A5 instead.
-// D2 was originally INT0 for PCF8574 interrupt — no longer needed.
-#define LED_R_PIN       2   // D2  — Red cathode sink
-#define LED_G_PIN       13  // D13 — Green cathode sink
-#define LED_B_PIN       A5  // A5  — Blue cathode sink
+// All three are on PORTD (bits 4–6) — grouped for fast simultaneous blanking.
+// NOTE: A6 and A7 are ANALOG-ONLY on ATmega328P — cannot be used as digital outputs.
+#define LED_R_PIN       4   // D4 — Red cathode sink   (PD4)
+#define LED_G_PIN       5   // D5 — Green cathode sink (PD5)
+#define LED_B_PIN       6   // D6 — Blue cathode sink  (PD6)
+
+// CD74HC165E shift register (switch reading)
+#define SR_SH_LD_PIN    9   // D9  — SH/LD: pulse low to latch parallel inputs
+#define SR_CLK_PIN      10  // D10 — CLK: clock to shift data out
+#define SR_QH_PIN       11  // D11 — QH: serial data out
+// No interrupt pin for switch change — all interrupt-capable pins are in use; poll instead.
 
 // --- LED color definitions ---
 // Each LED has an RGB triplet stored as {R, G, B} where 1=on, 0=off

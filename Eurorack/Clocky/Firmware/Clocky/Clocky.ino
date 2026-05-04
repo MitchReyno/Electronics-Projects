@@ -14,8 +14,8 @@
 
 // Output ratios for channels A–H (same as original)
 unsigned long ratios[8] = {
-  1,   // A
-  2,   // B
+  2,   // A
+  4,   // B
   4,   // C
   8,   // D
   16,  // E
@@ -50,21 +50,25 @@ void setup() {
   digitalWrite(SR_SH_LD_PIN, HIGH);  // Idle high (active low)
   digitalWrite(SR_CLK_PIN, LOW);     // Idle low
 
-  // --- Switch reading: polled mode ---
-  // D2 is used for LED_R cathode, so no interrupt-based switch detection.
-  // Polling every 50ms in the main loop is perfectly adequate.
-
   // --- LED multiplexing setup (Timer2 + CD4017) ---
   setupLedMux();
 
-  // --- Trigger interrupt (INT1 on D3) ---
-  attachInterrupt(INT1, trigger_int, CHANGE);
+  // --- Trigger interrupt (INT0 on D2) ---
+  attachInterrupt(INT0, trigger_int, CHANGE);
 
   // --- Initial switch read ---
   updateToggles();
 
   // --- Show rainbow while waiting for first clock ---
   showRainbow();
+}
+
+void printBoolArray(const bool* arr, size_t len) {
+  for (size_t i = 0; i < len; i++) {
+    Serial.print(i);
+    Serial.print(F(": "));
+    Serial.println(arr[i] ? F("true") : F("false"));
+  }
 }
 
 void loop() {
@@ -76,13 +80,13 @@ void loop() {
     // Unlike the original's NeoPixel rainbow animation, our on/off RGB
     // can't do smooth color wheel transitions. Instead we do a simple
     // rotating pattern: shift the rainbow_colors array every ~200ms.
-    
+
     static unsigned long last_rainbow_shift = 0;
     if (millis() - last_rainbow_shift > 200) {
       last_rainbow_shift = millis();
-      
+
       // Manual member copy — volatile structs can't use implicit copy
-      LedColor first = {led_state[0].r, led_state[0].g, led_state[0].b};
+      LedColor first = { led_state[0].r, led_state[0].g, led_state[0].b };
       for (byte i = 0; i < 9; i++) {
         led_state[i].r = led_state[i + 1].r;
         led_state[i].g = led_state[i + 1].g;
@@ -125,19 +129,19 @@ void loop() {
   // --- Output timing logic (unchanged from original) ---
   for (int i = 0; i < 8; i++) {
 
-    // DIVIDER: turn off output after half-period
-    if (toggle_divide[i]) {
+    if (toggle_divide[7 - i]) {
+      // DIVIDER: turn off output after half-period
+
       if (out_state[i]) {
-        if (micros() - time_turned_on[i] > period / (2 * ratios[i])) {
+        if (micros() - time_turned_on[i] > period * ratios[i] / 2) {
           FastWrite(i, LOW);
           out_state[i] = 0;
           setLed(i + 2, COLOR_OFF);
         }
       }
-    }
+    } else {
+      // MULTIPLIER: generate sub-clocks between trigger pulses
 
-    // MULTIPLIER: generate sub-clocks between trigger pulses
-    if (!toggle_divide[i]) {
       // Turn on at each subdivision
       if (!out_state[i]) {
         if (outs_micros[i] > period / ratios[i]) {
@@ -159,7 +163,6 @@ void loop() {
     }
   }
 
-  // --- Switch reading ---
   // --- Switch reading (polled every 50ms) ---
   static unsigned long last_switch_poll = 0;
   if (millis() - last_switch_poll > 50) {

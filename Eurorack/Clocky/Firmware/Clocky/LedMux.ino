@@ -72,7 +72,7 @@ void setupLedMux() {
 // Sequence: turn off cathodes → advance 4017 → set cathodes for new LED
 ISR(TIMER2_COMPA_vect) {
   // 1. Turn OFF all cathode sinks (blanking — prevents ghosting)
-  //    LED_R = D2 = PD2, LED_G = D13 = PB5, LED_B = A5 = PC5
+  //    LED_R = D4 = PD4, LED_G = D5 = PD5, LED_B = D6 = PD6 (all PORTD)
   //    Using digitalWrite for clarity — ISR is only ~15µs total.
 
   digitalWrite(LED_R_PIN, LOW);
@@ -86,14 +86,15 @@ ISR(TIMER2_COMPA_vect) {
 
   // 3. Advance our tracking counter
   current_led++;
-  if (current_led >= 4) {
+  if (current_led >= 10) {
     current_led = 0;
     // Reset 4017 to Q0 to stay in sync
     digitalWrite(LED_MUX_RST_PIN, HIGH);
     digitalWrite(LED_MUX_RST_PIN, LOW);
   }
 
-  // 4. Set cathode sinks for the current LED's color
+  // 4. Set cathode sinks for the current LED's color.
+  //    LED_R = D4 = PD4, LED_G = D5 = PD5, LED_B = D6 = PD6 (all PORTD).
   if (led_state[current_led].r) digitalWrite(LED_R_PIN, HIGH);
   if (led_state[current_led].g) digitalWrite(LED_G_PIN, HIGH);
   if (led_state[current_led].b) digitalWrite(LED_B_PIN, HIGH);

@@ -3,127 +3,181 @@
 A Eurorack clock divider/multiplier module, adapted from the
 [SoundForce Clocky](https://soundforce.nl) design.
 
-## What it does
+## Overview
 
-Clocky takes a single master clock input and produces **8 independent
-gate outputs (A–H)**. Each output can divide or multiply the incoming
-clock by a fixed ratio, selectable per channel via a toggle switch.
+This is an adapted version of the **SoundForce Clocky** Eurorack clock divider/multiplier module. The original design uses a PCF8574P I2C I/O expander for reading 8 toggle switches and PL9823 addressable RGB LEDs for status display. This adaptation replaces both with simpler, non-I2C alternatives.
 
-| Channel | Default ratio |
-| ------- | ------------- |
-| A       | ×1            |
-| B       | ×2            |
-| C       | ×4            |
-| D       | ×8            |
-| E       | ×16           |
-| F       | ×3            |
-| G       | ×5            |
-| H       | ×7            |
+## What the module does
 
-A **RST** jack resets the internal counter to re-synchronise divided
-outputs. Ten RGB LEDs provide visual feedback:
+Clocky takes a single master clock input (via the TRG jack) and produces 8 independent gate outputs (A–H). Each output can either **divide** or **multiply** the incoming clock by a configurable ratio (default: ×1, ×2, ×4, ×8, ×16, ×3, ×5, ×7). A toggle switch per channel selects divide vs multiply mode. A RST jack resets the internal counter to re-synchronize divided outputs.
 
-| LED            | Behaviour                                    |
-| -------------- | -------------------------------------------- |
-| LED 0 (TRG)    | Flashes magenta on each incoming clock pulse |
-| LED 1 (RST)    | Flashes green on reset                       |
-| LEDs 2–9 (A–H) | Blue = divide mode · Green = multiply mode   |
+10 LEDs provide visual feedback:
+- **LED0 (TRG):** Flashes on each incoming clock pulse (currently set to magenta/purple)
+- **LED1 (RST):** Flashes green on reset
+- **LED2–9 (A–H):** Show when each output fires — blue = divide mode, green = multiply mode
 
 When no clock is connected, the LEDs run an idle rainbow animation.
 
-## Hardware differences from original SoundForce design
+## Hardware changes from original
 
-| Subsystem    | Original                         | This version                                                            |
-| ------------ | -------------------------------- | ----------------------------------------------------------------------- |
-| Switch input | PCF8574P (I2C 8-bit expander)    | CD74HC165E (parallel-in serial-out shift register)                      |
-| LED display  | 10× PL9823 addressable RGB       | 10× common-anode RGB LEDs, multiplexed via CD4017BE                     |
-| LED drivers  | Integrated in PL9823             | 10× 2N3904 NPN emitter-followers (anodes) + 3× 2N3904 NPN cathode sinks |
-| Libraries    | Adafruit_NeoPixel, PCF8574, Wire | elapsedMillis only                                                      |
-
-No I2C bus required.
+| Subsystem | Original | Adapted version |
+|-----------|----------|-----------------|
+| Switch input | PCF8574P (I2C 8-bit expander) | CD74HC165E (parallel-in serial-out shift register) |
+| LED display | 10× PL9823 (WS2812-compatible addressable RGB) | 10× common-anode RGB LEDs, multiplexed via CD4017BE decade counter |
+| LED anode switching | N/A (PL9823 has integrated driver) | 10× 2N3904 NPN in emitter-follower config, driven by CD4017 outputs |
+| LED cathode sinking | N/A | 3× 2N3904 NPN (one per color bus: R, G, B) |
+| Current limiting | N/A | 3× resistors total (one per color bus, not per LED — safe because multiplexing ensures only one LED active at a time) |
+| Libraries removed | Adafruit_NeoPixel, PCF8574, Wire | N/A |
+| Libraries kept | elapsedMillis | elapsedMillis |
 
 ## Pin assignments
 
 ```
-Pin  | Function     | Group
------+--------------+---------------------
-D0   | (reserved)   | Serial RX
-D1   | (reserved)   | Serial TX
-D2   | TRIG_PIN     | Inputs
-D3   | RESET_PIN    | Inputs (INT1)
-D4   | LED_R        | LED cathode sinks
-D5   | LED_G        | LED cathode sinks
-D6   | LED_B        | LED cathode sinks
-D7   | MUX_CLK      | LED mux (CD4017)
-D8   | MUX_RST      | LED mux (CD4017)
-D9   | SR_SH_LD     | Shift register (HC165)
-D10  | SR_CLK       | Shift register (HC165)
-D11  | SR_QH        | Shift register (HC165)
-D12  | OUT7 (G)     | Gate outputs
-D13  | OUT8 (H)     | Gate outputs
-A0   | OUT1 (A)     | Gate outputs
-A1   | OUT2 (B)     | Gate outputs
-A2   | OUT3 (C)     | Gate outputs
-A3   | OUT4 (D)     | Gate outputs
-A4   | OUT5 (E)     | Gate outputs
-A5   | OUT6 (F)     | Gate outputs
+ Pin  | Function         | Group
+------+------------------+------------------
+ D0   | (reserved)       | Serial RX
+ D1   | (reserved)       | Serial TX
+ D2   | TRIG_PIN         | Inputs (INT0)
+ D3   | RESET_PIN        | Inputs
+ D4   | LED_R            | LED cathode sinks (PORTD bit 4)
+ D5   | LED_G            | LED cathode sinks (PORTD bit 5)
+ D6   | LED_B            | LED cathode sinks (PORTD bit 6)
+ D7   | MUX_CLK          | LED mux (CD4017)
+ D8   | MUX_RST          | LED mux (CD4017)
+ D9   | SR_SH_LD         | Shift register (HC165)
+ D10  | SR_CLK           | Shift register (HC165)
+ D11  | SR_QH            | Shift register (HC165)
+ D12  | OUT7 (G)         | Gate outputs (PORTB bit 4)
+ D13  | OUT8 (H)         | Gate outputs (PORTB bit 5)
+ A0   | OUT1 (A)         | Gate outputs (PORTC bit 0)
+ A1   | OUT2 (B)         | Gate outputs (PORTC bit 1)
+ A2   | OUT3 (C)         | Gate outputs (PORTC bit 2)
+ A3   | OUT4 (D)         | Gate outputs (PORTC bit 3)
+ A4   | OUT5 (E)         | Gate outputs (PORTC bit 4)
+ A5   | OUT6 (F)         | Gate outputs (PORTC bit 5)
+ A6   | (analog only)    | Unusable as digital
+ A7   | (analog only)    | Unusable as digital
 ```
 
-All 18 usable pins are assigned. A6/A7 are analog-only and unused.
+All 18 usable digital pins are assigned — zero spare. A6/A7 are analog-only on ATmega328P.
 
-## Firmware
+Port groupings:
+- **PORTD bits 4–6** (D4/D5/D6): all three LED cathodes on the same port — allows single-register blanking in the ISR if needed
+- **PORTC bits 0–5** (A0–A5): gate outputs A–F contiguous on one port
+- **PORTB bits 4–5** (D12/D13): gate outputs G/H
 
-Located in `Firmware/Clocky/`. Built with the Arduino IDE targeting
-an Arduino Nano (ATmega328P).
+## Pin constraints
 
-| File                | Purpose                                                             |
-| ------------------- | ------------------------------------------------------------------- |
-| `Clocky.ino`        | Main sketch: setup, main loop, output timing, switch polling        |
-| `variables.h`       | Pin definitions, state variables, colour constants, rainbow pattern |
-| `FastWrite.ino`     | Port manipulation for fast gate output toggling                     |
-| `LedMux.ino`        | Timer2 ISR for LED multiplexing, CD4017 control, `setLed()` helper  |
-| `ShiftRegister.ino` | CD74HC165E reading and toggle state management                      |
-| `interrupts.ino`    | Trigger ISR: clock edge detection, divider/multiplier output firing |
+- **D2 must be TRIG_PIN** — uses INT0 hardware interrupt (`attachInterrupt(INT0, trigger_int, CHANGE)`)
+- **D0/D1** reserved for serial debugging
+- **A6/A7** are analog-only on ATmega328P — cannot be digital outputs
+- **D13** has onboard LED — will flicker with OUT8 (H) gate activity (acceptable)
+- If an OLED display is wanted later, SDA/SCL (normally A4/A5) are occupied by gate outputs E and F — would require freeing pins, possibly by using an HC595 shift register for gate outputs to free up the PORTC pins
 
-### Dependencies
+## Firmware files
 
-- [elapsedMillis](https://github.com/pfeerick/elapsedMillis)
+All files live in the same Arduino sketch folder:
 
-## LED multiplexing
+- **Clocky.ino** — Main sketch: setup, main loop (idle rainbow, reset handling, output timing, switch polling)
+- **variables.h** — Pin definitions, LedColor struct, state variables, color constants, rainbow pattern
+- **FastWrite.ino** — Port manipulation for fast gate output toggling (inverted logic: HIGH clears bit, LOW sets bit, because outputs drive 2N3904 open-collector stages)
+- **LedMux.ino** — Timer2 ISR for LED multiplexing, CD4017 control, setLed() helper, rainbow/allOff functions
+- **ShiftRegister.ino** — CD74HC165E reading (readSwitches byte, updateToggles with index remapping)
+- **interrupts.ino** — Trigger ISR (clock rising/falling edge detection, divider/multiplier output firing, LED state updates)
 
-Timer2 is configured in CTC mode at **10 kHz** (prescaler 64,
-OCR2A = 24). The ISR cycles through all 10 LEDs every 1 ms, giving
-a 1 kHz per-LED refresh rate with no visible flicker.
+## LED multiplexing design
 
-Each LED anode has a **4.7 kΩ bleed resistor to GND** to ensure fast
-discharge when the NPN emitter-follower turns off; without this,
-parasitic capacitance causes ghosting.
+### How it works
+- **Timer2** configured in CTC mode at **10kHz** (prescaler 64, OCR2A = 24)
+  - IMPORTANT: Prescaler 64 on ATmega328P Timer2 requires `(1 << CS22) | (1 << CS20)`, not `(1 << CS22)` alone (which is prescaler 256 = 2.5kHz = visible flicker)
+- ISR fires every 100µs, cycling through 10 LEDs → each LED refreshes at 1kHz (flicker-free)
+- ISR sequence: blank all cathodes → advance CD4017 clock → set cathodes for new LED
+- The blanking-before-advance prevents ghosting (wrong color briefly showing on the next LED)
 
-Current limiting uses **3 resistors total** (one per colour bus):
-~68 Ω for red, ~47–56 Ω for green/blue. Multiplexing guarantees
-only one LED is active at a time, so per-bus resistors are safe.
+### NPN emitter-follower topology
+- CD4017 Qn output (active HIGH) → 1k base resistor → 2N3904 NPN base
+- NPN collector → +5V
+- NPN emitter → LED common anode
+- When Qn goes HIGH, emitter presents ~4.3V (5V - 0.7V Vbe) to LED anode
+- With 3V LED Vf, ~1.3V across series resistor
 
-## Input conditioning
+### Floating anode problem
+- When the NPN turns off, the LED anode floats (no discharge path)
+- Parasitic capacitance holds the ~4.3V charge, taking 2-3 clock cycles to decay
+- **Fix: 4.7k bleed resistor from each LED anode to GND** (10 resistors total)
+- Provides fast discharge within the 100µs timeslot
+- If still slow, try 2.2k or 1k
 
-Trigger and reset jacks use an NPN transistor stage to safely accept
-Eurorack signal levels (0–10 V). **10 kΩ pull-up resistors are required
-on D2 and D3** to prevent spurious triggering when no cable is
-connected.
+### Series resistors
+- Only 3 resistors needed (one per color bus), NOT 30 (one per LED per color)
+- Safe because multiplexing guarantees only one LED is powered at any given time
+- Placed between shared cathode bus and NPN collector
+- Values: ~68R for red (2V Vf), ~47-56R for green/blue (3.2V Vf) at 20mA
+- Can push lower for higher instantaneous current to compensate for 10% duty cycle
 
-## Power
+## Switch reading (CD74HC165E)
 
-Eurorack 10-pin header → +12 V → 1N5819 Schottky (reverse protection)
-→ LM7805 → +5 V. The Arduino Nano is powered from the 5 V pin,
-bypassing its onboard regulator.
+- Polled every 50ms in main loop (no interrupt-driven detection)
+- SH/LD pulsed low to latch parallel inputs, then 8 bits clocked out MSB-first on QH
+- 10k pull-up resistors on each switch input (switch closed = GND = logic 0)
+- `toggle_index[8] = {7,6,5,4,3,2,1,0}` reverses physical-to-logical mapping (from original design)
 
-## Build status
+## Gate output stage
 
-Breadboarding stage. Core LED multiplexing and clock division/
-multiplication logic are working.
+- Unchanged from original: Nano pin → 10k base resistor → 2N3904 NPN → output jack
+- 10k collector pull-up to +5V
+- Open-collector, active low: Nano HIGH = transistor ON = output LOW (gate pulse)
+- FastWrite uses inverted port manipulation (LOW sets bit, HIGH clears bit)
+- Port mapping: cases 0–5 use PORTC bits 0–5 (A0–A5), cases 6–7 use PORTB bits 4–5 (D12–D13)
 
-## Schematic
+## Trigger/Reset input conditioning
 
-KiCad 8 project files are in the root directory (`.kicad_sch`,
-`.kicad_pcb`, `.kicad_pro`). Note: the schematic has not been fully
-updated to reflect the final NPN emitter-follower topology — it still
-shows an earlier revision.
+- 3.5mm jack → 100k resistor to GND → 2N3904 NPN base
+- NPN collector pulled up to +5V via 10k
+- Collector output to Arduino pin (inverted: external HIGH → NPN on → Arduino sees LOW)
+- Handles Eurorack voltage levels (0-10V) safely — transistor clamps, Arduino only sees 0-5V
+- **Both D2 and D3 need 10k pull-up resistors** to prevent floating/spurious triggering when no cable is connected
+
+## Power supply
+
+- Eurorack 10-pin header → +12V through 1N5819 Schottky (reverse protection) → 47µF decoupling → LM7805 → +5V
+- 100nF ceramic on 7805 output
+- Arduino powered via 5V pin (bypasses onboard regulator)
+- Safe to have USB and circuit power connected simultaneously (Nano has built-in Schottky on USB 5V line)
+
+## Known issues / bugs found and fixed
+
+1. **Original FastWrite.ino bug:** Case 2 (D7) used `PORTD |= B11000000` which sets both bit 7 AND bit 6, accidentally also triggering output index 1. Fixed to only set bit 7.
+2. **volatile struct copy:** `led_state[]` is `volatile LedColor` — C++ won't implicitly copy volatile structs. Must use member-by-member copy: `LedColor first = {led_state[0].r, led_state[0].g, led_state[0].b};`
+3. **Timer2 prescaler:** CS22 alone = prescaler 256 (not 64). Need `(1 << CS22) | (1 << CS20)` for prescaler 64.
+4. **PNP inversion problem:** CD4017 outputs are active-high, PNP turns on with base LOW → 9 LEDs on, 1 off (inverted). Solved by switching to NPN emitter-followers instead of PNPs.
+5. **CD4017 CLK input:** Pure CMOS voltage-driven (no current needed), no Schmitt trigger hysteresis. Threshold ~2.5V at 5V supply. Direct drive from Arduino is clean enough; CD40106 buffer available if ringing occurs.
+
+## Component inventory (relevant parts available)
+
+- 100× 2N3904 (NPN), 100× 2N3906 (PNP), 20× BC327 (PNP), 20× BC337 (NPN)
+- 25× CD74HC165E, 25× CD74HC595E, 2× SN74HC595N, 2× CD4094BE
+- 29× CD4017BE
+- 30× CD40106BE (Schmitt inverters — available if inversion needed)
+- LM7805 regulators, 1N5819 Schottky diodes
+- Common-anode RGB LEDs
+- Full IC and semiconductor inventory available in CSV files
+
+## Future considerations discussed but not implemented
+
+- **BPM display:** 3-digit 7-segment or OLED (SSD1306). BPM = 60000000/period. Pin budget is the blocker — no spare pins.
+- **Ratio display + live adjustment:** Single rotary encoder + OLED showing all 8 ratios. Would need pin reassignment (e.g., HC595 for gate outputs to free up pins for I2C).
+- **ULN2803 Darlington array:** Could replace individual NPN transistors on cathode sinks if acquired, but not currently in inventory.
+
+## KiCad schematic
+
+A KiCad 8 schematic (.kicad_sch) and project file (.kicad_pro) were generated. The `lib_symbols` section is empty — KiCad resolves from local libraries on open. Layout needs manual cleanup after opening. Global labels connect the 6 sections (power, Arduino, switch input, LED driver, output buffers, trigger/reset inputs). Note: the KiCad schematic has NOT been updated to reflect the NPN emitter-follower change or the pin reassignment — it still shows the earlier PNP topology.
+
+## Current build status
+
+- Breadboarding stage
+- LED multiplexing working after prescaler fix (10kHz confirmed on scope)
+- NPN emitter-followers replacing original PNP attempt
+- Bleed resistors (4.7k) needed on each LED anode to fix floating discharge
+- Trigger/reset input conditioning circuit may not yet be wired — D2/D3 were floating and causing spurious triggers
+- 10k pull-ups needed on D2 and D3

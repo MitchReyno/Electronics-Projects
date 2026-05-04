@@ -39,7 +39,8 @@ byte readSwitches() {
 void updateToggles() {
   byte switches = readSwitches();
   for (int i = 0; i < 8; i++) {
-    toggle_divide[toggle_index[i]] = (switches >> i) & 0x01;
+    byte value = (switches >> i) & 0x01;
+    toggle_divide[toggle_index[i]] = value;
   }
 }
 

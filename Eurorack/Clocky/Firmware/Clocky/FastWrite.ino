@@ -1,44 +1,41 @@
 // =============================================================
 // Clocky Alt — FastWrite.ino
-// Port manipulation for fast output toggling (unchanged)
+// Port manipulation for fast output toggling
 // =============================================================
 
 // NOTE: The logic is INVERTED because the outputs drive 2N3904 bases.
-// FastWrite(i, HIGH) clears the port bit → transistor OFF → output jack HIGH (via pull-up)
-// FastWrite(i, LOW)  sets the port bit  → transistor ON  → output jack LOW (gate pulse)
-// 
-// Pin mapping: outs[] = {5, 6, 7, 8, 9, 12, 11, 10}
-//   case 0: D5  = PORTD bit 5
-//   case 1: D6  = PORTD bit 6
-//   case 2: D7  = PORTD bit 7  (original has B11000000 which also sets D6 — possible bug in original?)
-//   case 3: D8  = PORTB bit 0
-//   case 4: D9  = PORTB bit 1
-//   case 5: D12 = PORTB bit 4
-//   case 6: D11 = PORTB bit 3
-//   case 7: D10 = PORTB bit 2
+// FastWrite(i, HIGH) clears the port bit → transistor OFF → output jack HIGH (via pull-up) = gate ON
+// FastWrite(i, LOW)  sets the port bit  → transistor ON  → output jack LOW                = gate OFF
+//
+// Pin mapping: outs[] = {A0, A1, A2, A3, A4, A5, 12, 13}
+//   cases 0–5: A0–A5 = PORTC bits 0–5
+//   case 6:    D12   = PORTB bit 4
+//   case 7:    D13   = PORTB bit 5
 
 void FastWrite(int input, bool state) {
   if (!state) {
+    // LOW: set bit → NPN on → output jack LOW (gate OFF)
     switch (input) {
-      case 0: PORTD |= B00100000; break;
-      case 1: PORTD |= B01000000; break;
-      case 2: PORTD |= B10000000; break;  // Fixed: was B11000000 in original
-      case 3: PORTB |= B00000001; break;
-      case 4: PORTB |= B00000010; break;
-      case 5: PORTB |= B00010000; break;
-      case 6: PORTB |= B00001000; break;
-      case 7: PORTB |= B00000100; break;
+      case 0: PORTC |= (1 << 0); break;  // A0
+      case 1: PORTC |= (1 << 1); break;  // A1
+      case 2: PORTC |= (1 << 2); break;  // A2
+      case 3: PORTC |= (1 << 3); break;  // A3
+      case 4: PORTC |= (1 << 4); break;  // A4
+      case 5: PORTC |= (1 << 5); break;  // A5
+      case 6: PORTB |= (1 << 4); break;  // D12
+      case 7: PORTB |= (1 << 5); break;  // D13
     }
   } else {
+    // HIGH: clear bit → NPN off → output jack HIGH via pull-up (gate ON)
     switch (input) {
-      case 0: PORTD &= B11011111; break;
-      case 1: PORTD &= B10111111; break;
-      case 2: PORTD &= B01111111; break;
-      case 3: PORTB &= B11111110; break;
-      case 4: PORTB &= B11111101; break;
-      case 5: PORTB &= B11101111; break;
-      case 6: PORTB &= B11110111; break;
-      case 7: PORTB &= B11111011; break;
+      case 0: PORTC &= ~(1 << 0); break;  // A0
+      case 1: PORTC &= ~(1 << 1); break;  // A1
+      case 2: PORTC &= ~(1 << 2); break;  // A2
+      case 3: PORTC &= ~(1 << 3); break;  // A3
+      case 4: PORTC &= ~(1 << 4); break;  // A4
+      case 5: PORTC &= ~(1 << 5); break;  // A5
+      case 6: PORTB &= ~(1 << 4); break;  // D12
+      case 7: PORTB &= ~(1 << 5); break;  // D13
     }
   }
 }

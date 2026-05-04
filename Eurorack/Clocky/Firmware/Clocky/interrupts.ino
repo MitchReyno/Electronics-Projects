@@ -17,7 +17,7 @@ void trigger_int() {
 
     for (int i = 0; i < 8; i++) {
       // Divider mode
-      if (toggle_divide[i]) {
+      if (toggle_divide[7 - i]) {
         if (clock_counter % ratios[i] == 0) {
           FastWrite(i, HIGH);
           outs_micros[i] = 0;
@@ -29,7 +29,7 @@ void trigger_int() {
       }
 
       // Multiplier mode
-      if (!toggle_divide[i]) {
+      if (!toggle_divide[7 - i]) {
         FastWrite(i, HIGH);
         outs_micros[i] = 0;
         out_state[i] = 1;
